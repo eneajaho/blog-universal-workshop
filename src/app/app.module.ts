@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -52,11 +53,14 @@ export const routes: Routes = [
     FooterComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    TransferHttpCacheModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled'
+    })
   ],
-  exports: [RouterModule],
+  exports: [ RouterModule ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

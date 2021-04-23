@@ -15,9 +15,9 @@ We want to make the site load faster and SEO-friendly.
 
 ### Todo
 
-- Add server side rendering
-- Add static site generation
-- Fix localStorage problem when server side rendering the app
-- Add SEO service
-- Compare page speed between CSR, SSR and SSG versions 
-- Don't server side render dashboard page
+- ~~Add server side rendering~~
+- ~~Add static site generation~~
+- ~~Fix localStorage problem when server side rendering the app~~
+- ~~Add SEO service~~
+- ~~Compare page speed between CSR, SSR and SSG versions~~
+- ~~Don't server side render dashboard page~~

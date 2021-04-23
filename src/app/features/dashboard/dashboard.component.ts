@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: object) {}
+  // constructor() { }
 
   ngOnInit(): void {
-    const test = localStorage.getItem('test');
-    console.log(test);
+    // dont solve it like this, instead use InjectionToken to inject fake localStorage class
+    // https://github.com/angular/universal/blob/master/docs/gotchas.md#strategy-2-guards
+    if (isPlatformBrowser(this.platformId)) {
+      const test = localStorage.getItem('test');
+      console.log(test);
+    }
   }
 
 }

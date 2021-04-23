@@ -1,22 +1,23 @@
-<div class="container mt-3" *ngIf="posts.length > 0">
+<!--<div class="container mt-3" *ngIf="posts.length > 0">-->
+<div class="container mt-3">
 
   <h2 class="my-5">Best blog posts</h2>
 
   <div class="row">
-    <div *ngFor="let post of posts"
+    <div *ngFor="let post of posts; trackBy: trackByFn"
          class="col-12 col-md-6 col-lg-4 mb-4"
          [routerLink]="['/blog/details', post.id]">
       <app-single-post [post]="post" ></app-single-post>
     </div>
   </div>
 
-  <div class="text-center my-5">
+  <div class="text-center my-5" *ngIf="posts.length > 0">
     <button class="btn btn-primary px-5 py-3 h4" (click)="loadMore()">Load more</button>
   </div>
 
 </div>
 
 
-<div *ngIf="loading" class="text-center my-5">
-  Loading...
-</div>
+<!--<div *ngIf="loading" class="text-center my-5">-->
+<!--  Loading...-->
+<!--</div>-->

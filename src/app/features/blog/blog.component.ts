@@ -37,4 +37,8 @@ export class BlogComponent implements OnInit {
     );
   }
 
+  trackByFn(index: number, post: Blogpost): number {
+    return post.id;
+  }
+
 }
